@@ -16,7 +16,7 @@ class EmailsToEnviteRepository:
             ''', (
                 email_infos["id"],
                 email_infos["trip_id"],
-                email_infos["email"],
+                email_infos["email"]
             )
         )
         self.__conn.commit()
@@ -26,5 +26,5 @@ class EmailsToEnviteRepository:
         cursor.execute(
             '''SELECT * FROM emails_to_invite WHERE trip_id = ?''', (trip_id,)
         )
-        trip = cursor.fetchall()
-        return trip
+        emails = cursor.fetchall()
+        return emails
